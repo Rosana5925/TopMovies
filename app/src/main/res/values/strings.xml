@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TopMovies</string>
+    <string name="favorite">Filmes Favoritos</string>
+    <string name="pref_order_label">Ver</string>
+    <string name="pref_order_key">Verordem</string>
+    <string name="pref_mais_popular">Mais Populares</string>
+    <string name="favorito">Filmes Favoritos</string>
+
+</resources>
