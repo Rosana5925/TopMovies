@@ -44,7 +44,6 @@ public class ListaTrailerPresenter implements ListaTrailerContrato.ListaTrailerP
         });
 
     }
-
     @Override
     public void destruirView() {
         this.view = null;

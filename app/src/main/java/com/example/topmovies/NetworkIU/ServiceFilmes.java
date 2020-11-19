@@ -1,6 +1,7 @@
 package com.example.topmovies.NetworkIU;
 
 import com.example.topmovies.NetworkIU.Response.ResultFilme;
+import com.example.topmovies.NetworkIU.Response.ResultReview;
 import com.example.topmovies.NetworkIU.Response.ResultTrailer;
 
 import retrofit2.Call;
@@ -17,5 +18,9 @@ public interface ServiceFilmes {
     @GET("movie/{id}/videos")
     //segundo edpoint com retrofit
     Call<ResultTrailer> obterTrailer(@Path("id") int id, @Query("api_key") String chaveApi);
+
+    @GET("movie/{id}/reviews")
+        //terceiro edpoint com retrofit
+    Call<ResultReview> obterReview(@Path("id") int id, @Query("api_key") String chaveApi);
 
 }

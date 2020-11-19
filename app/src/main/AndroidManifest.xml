@@ -11,12 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TopMovies">
-        <activity android:name=".ItemTrailer"></activity>
-        <activity android:name=".UI.detalhesFilmes.DetalhesFilmeActivity"
+        <activity android:name=".ReviewActivity"></activity>
+        <activity android:name=".ItemTrailer" />
+        <activity
+            android:name=".UI.detalhesFilmes.DetalhesFilmeActivity"
             android:parentActivityName=".UI.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".UI.MainActivity"/>
+                android:value=".UI.MainActivity" />
         </activity>
         <activity android:name=".UI.recyclerview_item" />
         <activity android:name=".UI.MainActivity">

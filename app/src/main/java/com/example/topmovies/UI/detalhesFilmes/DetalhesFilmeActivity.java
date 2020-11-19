@@ -18,6 +18,7 @@ import com.example.topmovies.DB.FavoriteDBHelper;
 import com.example.topmovies.R;
 import com.example.topmovies.UI.ListaFilmesContrato;
 import com.example.topmovies.entidades.Filme;
+import com.example.topmovies.entidades.Review;
 import com.example.topmovies.entidades.Trailer;
 import com.github.ivbaranov.mfb.MaterialFavoriteButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -26,13 +27,20 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetalhesFilmeActivity extends AppCompatActivity implements ListaTrailerContrato.ListaTrailerView {
+public class DetalhesFilmeActivity extends AppCompatActivity implements ListaTrailerContrato.ListaTrailerView
+        , ListaReviewContrato.ListaReviewView {
 
     public static final String Extra_Filme = "Extra Filme";
     private RecyclerView recyclerView;
+
     private List<Trailer> trailerList;
     private TrailerAdapter adaptertrailer;
     private ListaTrailerContrato.ListaTrailerPresenter presenter;
+
+    private List<Review> reviewsList;
+    private ReviewAdapter reviewAdapter;
+    private ListaReviewContrato.ListaReviewPresenter reviewPresenter;
+
     private FavoriteDBHelper favoriteDBHelper;
     private Filme favorito;
     private final AppCompatActivity activity = DetalhesFilmeActivity.this;
@@ -71,9 +79,13 @@ public class DetalhesFilmeActivity extends AppCompatActivity implements ListaTra
                 .load("https://image.tmdb.org/t/p/w342" + filme.getCaminhoPoster())
                 .into(capafilme);
 
-        configurarAdapter();
+        configurarAdapterTrailer();
         presenter = new ListaTrailerPresenter(this);
         presenter.obtemTrailer(filme.getId());
+
+        configurarAdapterReview();
+        reviewPresenter= new ListaReviewPresenter(this) ;
+        reviewPresenter.obtemReview(filme.getId());
 
 
         MaterialFavoriteButton materialFavoriteButton =
@@ -142,7 +154,7 @@ public class DetalhesFilmeActivity extends AppCompatActivity implements ListaTra
 
     }
 
-    public void configurarAdapter() {
+    public void configurarAdapterTrailer() {
         trailerList = new ArrayList<>();
         adaptertrailer = new TrailerAdapter(trailerList, this);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView1);
@@ -151,9 +163,24 @@ public class DetalhesFilmeActivity extends AppCompatActivity implements ListaTra
         recyclerView.setAdapter(adaptertrailer);
     }
 
+    public void configurarAdapterReview(){
+        reviewsList=new ArrayList<>();
+     reviewAdapter=new ReviewAdapter(reviewsList,this);
+     recyclerView=(RecyclerView) findViewById(R.id.recyclerView_review);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setAdapter(reviewAdapter);
+
+    }
+
     @Override
     public void mostrarTrailer(List<Trailer> trailers) {
         adaptertrailer.setTrailers(trailers);
+    }
+
+    @Override
+    public void mostrarReview(List<Review> reviews) {
+      reviewAdapter.setReviews(reviews);
     }
 
     @Override

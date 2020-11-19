@@ -48,20 +48,14 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    //androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.android.support:recyclerview-v7:30.0.0'
     implementation 'com.android.support:appcompat-v7:30.0.0'
     implementation 'com.android.support:cardview-v7:30.0.0'
-    //implementation 'com.android.support:design-v7:30.0.0'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-moshi:2.4.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
-    //implementation'com.squareup.retrofit2:converter-gson:2.4.0'
-    // implemation'com.github.arcadefire:nice-spinner:1.3.4'
-    // implemation 'io.paperdb:paperdb:2.5'
-    // implemation'com.github.florent37:diagonallayout:1.0.7'
-    // implemation'com.falviofaria:kenburnsview:1.0.7'
     implementation 'com.github.ivbaranov:materialfavoritebutton:0.1.5'
+
 
 }

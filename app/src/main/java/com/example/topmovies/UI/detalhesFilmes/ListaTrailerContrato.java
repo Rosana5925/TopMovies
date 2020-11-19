@@ -1,6 +1,5 @@
 package com.example.topmovies.UI.detalhesFilmes;
 
-import com.example.topmovies.entidades.Filme;
 import com.example.topmovies.entidades.Trailer;
 
 import java.util.List;
