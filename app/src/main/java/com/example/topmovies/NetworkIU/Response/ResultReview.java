@@ -9,7 +9,7 @@ public class ResultReview {
     private final List<ResponseReview> resultadoreviews;
 
     public ResultReview(List<ResponseReview> resultadoreviews) {
-        this.resultadoreviews=resultadoreviews;
+        this.resultadoreviews = resultadoreviews;
     }
 
     public List<ResponseReview> getReviews() {

@@ -10,9 +10,9 @@ import java.util.List;
 
 public class TrailerMapper {
 
-    public static List<Trailer> ParaTrailer(List<ResponseTrailer> listatrailerResponse){
-        List<Trailer> listaTrailer= new ArrayList<>();
-        if(listatrailerResponse != null) {
+    public static List<Trailer> ParaTrailer(List<ResponseTrailer> listatrailerResponse) {
+        List<Trailer> listaTrailer = new ArrayList<>();
+        if (listatrailerResponse != null) {
 
             for (ResponseTrailer responseTrailer : listatrailerResponse) {
                 final Trailer trailer = new Trailer(responseTrailer.getId()

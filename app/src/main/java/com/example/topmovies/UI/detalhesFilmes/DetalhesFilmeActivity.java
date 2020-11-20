@@ -60,7 +60,7 @@ public class DetalhesFilmeActivity extends AppCompatActivity implements ListaTra
         FavoriteDBHelper dbHelper = new FavoriteDBHelper(this);
         mDB = dbHelper.getWritableDatabase();
 
-      filme = (Filme) getIntent().getSerializableExtra(Extra_Filme);
+        filme = (Filme) getIntent().getSerializableExtra(Extra_Filme);
 
         textTituloFilme = findViewById(R.id.textViewtitulofilme);
         textTituloFilme.setText(filme.getTitulo());
@@ -84,7 +84,7 @@ public class DetalhesFilmeActivity extends AppCompatActivity implements ListaTra
         presenter.obtemTrailer(filme.getId());
 
         configurarAdapterReview();
-        reviewPresenter= new ListaReviewPresenter(this) ;
+        reviewPresenter = new ListaReviewPresenter(this);
         reviewPresenter.obtemReview(filme.getId());
 
 
@@ -113,7 +113,7 @@ public class DetalhesFilmeActivity extends AppCompatActivity implements ListaTra
                         }
                     });
 
-        }else{
+        } else {
             materialFavoriteButton.setOnFavoriteChangeListener(new MaterialFavoriteButton.OnFavoriteChangeListener() {
                 @Override
                 public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
@@ -163,10 +163,10 @@ public class DetalhesFilmeActivity extends AppCompatActivity implements ListaTra
         recyclerView.setAdapter(adaptertrailer);
     }
 
-    public void configurarAdapterReview(){
-        reviewsList=new ArrayList<>();
-     reviewAdapter=new ReviewAdapter(reviewsList,this);
-     recyclerView=(RecyclerView) findViewById(R.id.recyclerView_review);
+    public void configurarAdapterReview() {
+        reviewsList = new ArrayList<>();
+        reviewAdapter = new ReviewAdapter(reviewsList, this);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView_review);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(reviewAdapter);
@@ -180,7 +180,7 @@ public class DetalhesFilmeActivity extends AppCompatActivity implements ListaTra
 
     @Override
     public void mostrarReview(List<Review> reviews) {
-      reviewAdapter.setReviews(reviews);
+        reviewAdapter.setReviews(reviews);
     }
 
     @Override

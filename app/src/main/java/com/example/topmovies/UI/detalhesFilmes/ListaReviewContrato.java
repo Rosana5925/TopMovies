@@ -6,15 +6,16 @@ import java.util.List;
 
 public interface ListaReviewContrato {
 
-    interface ListaReviewView{
+    interface ListaReviewView {
         void mostrarReview(List<Review> reviews);
+
         void mostraErro();
 
     }
 
-    interface ListaReviewPresenter{
+    interface ListaReviewPresenter {
 
-        void obtemReview( int movie_id);
+        void obtemReview(int movie_id);
 
         void destruirView();
     }

@@ -9,7 +9,7 @@ public class ServiceApi {
 
     private static ServiceFilmes INSTANCE;
 
-    public static ServiceFilmes getInstance () {
+    public static ServiceFilmes getInstance() {
 
         if (INSTANCE == null) {
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
@@ -24,7 +24,8 @@ public class ServiceApi {
                     .client(httpClient.build())
                     .build();
 
-            INSTANCE= retrofit.create(ServiceFilmes.class);
-        } return INSTANCE;
+            INSTANCE = retrofit.create(ServiceFilmes.class);
+        }
+        return INSTANCE;
     }
 }

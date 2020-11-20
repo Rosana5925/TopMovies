@@ -22,7 +22,7 @@ import java.util.List;
 public class TrailerAdapter extends RecyclerView.Adapter<TrailerAdapter.ViewHolder> {
 
     private static List<Trailer> trailers;
-     private static Context mContext;
+    private static Context mContext;
 
     public TrailerAdapter(List<Trailer> trailers, Context mContext) {
         this.trailers = trailers;
@@ -32,13 +32,13 @@ public class TrailerAdapter extends RecyclerView.Adapter<TrailerAdapter.ViewHold
     @NonNull
     @Override
     public TrailerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_item_trailer, parent, false);
-       return new ViewHolder(view);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_item_trailer, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull TrailerAdapter.ViewHolder holder, int position) {
-     holder.titulo.setText(trailers.get(position).getNome());
+        holder.titulo.setText(trailers.get(position).getNome());
     }
 
     @Override
@@ -46,37 +46,38 @@ public class TrailerAdapter extends RecyclerView.Adapter<TrailerAdapter.ViewHold
         return trailers.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView titulo;
         public ImageView imageV;
-       public ViewHolder(View view){
-           super(view);
-           titulo=(TextView) view.findViewById(R.id.titulo);
-           imageV=(ImageView) view.findViewById(R.id.image_view);
 
-           view.setOnClickListener(new View.OnClickListener(){
-               @Override
-               public void onClick(View v) {
-                   int pos=getAdapterPosition();
-                   if(pos != RecyclerView.NO_POSITION){
-                       Trailer clickedDataItem=trailers.get(pos);
-                       String videoId=trailers.get(pos).getChave();
+        public ViewHolder(View view) {
+            super(view);
+            titulo = (TextView) view.findViewById(R.id.titulo);
+            imageV = (ImageView) view.findViewById(R.id.image_view);
 
-                       Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:"+videoId));
-                      intent.putExtra("VIDEO",videoId);
-                      mContext.startActivity(intent);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        Trailer clickedDataItem = trailers.get(pos);
+                        String videoId = trailers.get(pos).getChave();
 
-                       Toast.makeText(v.getContext(),"you clicked"+clickedDataItem.getNome(),Toast.LENGTH_SHORT).show();
-                   }
-               }
-           });
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + videoId));
+                        intent.putExtra("VIDEO", videoId);
+                        mContext.startActivity(intent);
+
+                        Toast.makeText(v.getContext(), "you clicked" + clickedDataItem.getNome(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         }
 
     }
 
-    public void setTrailers(List<Trailer> trailers){
-        this.trailers=trailers;
+    public void setTrailers(List<Trailer> trailers) {
+        this.trailers = trailers;
         notifyDataSetChanged();
     }
 

@@ -13,23 +13,23 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListaReviewPresenter  implements ListaReviewContrato.ListaReviewPresenter{
+public class ListaReviewPresenter implements ListaReviewContrato.ListaReviewPresenter {
     private ListaReviewContrato.ListaReviewView view;
     public static final String Extra_Review = "Extra Review";
 
     public ListaReviewPresenter(ListaReviewContrato.ListaReviewView view) {
-            this.view = view;
+        this.view = view;
     }
 
     @Override
     public void obtemReview(int movie_id) {
-        ServiceApi.getInstance().obterReview(movie_id,BuildConfig.MY_API_KEY).enqueue(new Callback<ResultReview>() {
+        ServiceApi.getInstance().obterReview(movie_id, BuildConfig.MY_API_KEY).enqueue(new Callback<ResultReview>() {
             @Override
             public void onResponse(Call<ResultReview> call, Response<ResultReview> response) {
-                if (response.isSuccessful()){
-                    List<Review> reviewList=ReviewMapper.ParaReview(response.body().getReviews());
+                if (response.isSuccessful()) {
+                    List<Review> reviewList = ReviewMapper.ParaReview(response.body().getReviews());
                     view.mostrarReview(reviewList);
-                }else {
+                } else {
                     view.mostraErro();
                 }
             }

@@ -5,9 +5,9 @@ import com.squareup.moshi.Json;
 public class ResponseTrailer {
     @Json(name = "id")
     private final String id;
-    @Json(name ="name")
+    @Json(name = "name")
     private final String nome;
-    @Json(name="key")
+    @Json(name = "key")
     private final String chave;
 
     public ResponseTrailer(String id, String nome, String chave) {

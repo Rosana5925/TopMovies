@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
@@ -11,17 +12,22 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.topmovies.DB.FavoriteDBHelper;
+import com.example.topmovies.NetworkIU.Response.ResultFilme;
 import com.example.topmovies.R;
 import com.example.topmovies.UI.detalhesFilmes.DetalhesFilmeActivity;
 import com.example.topmovies.entidades.Filme;
+import com.example.topmovies.mapper.FilmeMapper;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity
         implements ListaFilmesContrato.ListaFilmesView,
@@ -32,7 +38,6 @@ public class MainActivity extends AppCompatActivity
     private AppCompatActivity activity = MainActivity.this;
     private FavoriteDBHelper favoriteDBHelper;
     private List<Filme> filmesList = new ArrayList<>();
-
 
 
     @Override
@@ -46,8 +51,8 @@ public class MainActivity extends AppCompatActivity
         presenter.obtemFilmes();
         favoriteDBHelper = new FavoriteDBHelper(activity);
 
-
     }
+
 
     private void configuracaoAdapter() {
         int numberOfColumns = 2;
@@ -112,7 +117,7 @@ public class MainActivity extends AppCompatActivity
         super.onResume();
         if (filmesList != null) {
             if (filmesList.isEmpty()) {
-               // checkSortOrder();
+                // checkSortOrder();
             }
         }
     }
@@ -130,4 +135,6 @@ public class MainActivity extends AppCompatActivity
         );
 
     }
+
+
 }

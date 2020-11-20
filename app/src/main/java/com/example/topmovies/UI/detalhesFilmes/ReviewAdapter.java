@@ -54,8 +54,9 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
 
         }
     }
-    public void setReviews(List<Review> reviews){
-        this.reviews=reviews;
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
         notifyDataSetChanged();
     }
 }

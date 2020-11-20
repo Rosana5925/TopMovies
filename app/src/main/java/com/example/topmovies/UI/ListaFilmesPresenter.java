@@ -14,12 +14,12 @@ import retrofit2.Response;
 
 public class ListaFilmesPresenter implements ListaFilmesContrato.ListaFilmesPresenter {
 
-    private  ListaFilmesContrato.ListaFilmesView view;
+    private ListaFilmesContrato.ListaFilmesView view;
 
 
-    public ListaFilmesPresenter(ListaFilmesContrato.ListaFilmesView view){
-       this.view=view;
-   }
+    public ListaFilmesPresenter(ListaFilmesContrato.ListaFilmesView view) {
+        this.view = view;
+    }
 
     @Override
     public void obtemFilmes() {
@@ -47,7 +47,7 @@ public class ListaFilmesPresenter implements ListaFilmesContrato.ListaFilmesPres
 
     @Override
     public void destruirView() {
-        this.view=null;
+        this.view = null;
     }
 
 

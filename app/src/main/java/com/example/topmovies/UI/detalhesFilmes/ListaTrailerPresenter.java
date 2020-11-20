@@ -7,6 +7,7 @@ import com.example.topmovies.NetworkIU.Response.ResultTrailer;
 import com.example.topmovies.NetworkIU.ServiceApi;
 import com.example.topmovies.entidades.Trailer;
 import com.example.topmovies.mapper.TrailerMapper;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -23,7 +24,7 @@ public class ListaTrailerPresenter implements ListaTrailerContrato.ListaTrailerP
     }
 
     @Override
-    public void obtemTrailer( int movie_id) {
+    public void obtemTrailer(int movie_id) {
 
         ServiceApi.getInstance().obterTrailer(movie_id, BuildConfig.MY_API_KEY).enqueue(new Callback<ResultTrailer>() {
             @Override
@@ -44,6 +45,7 @@ public class ListaTrailerPresenter implements ListaTrailerContrato.ListaTrailerP
         });
 
     }
+
     @Override
     public void destruirView() {
         this.view = null;

@@ -12,11 +12,11 @@ import retrofit2.http.Query;
 public interface ServiceFilmes {
 
     @GET("movie/popular")
-    //primeiro edpoint com retrofit
+        //primeiro edpoint com retrofit
     Call<ResultFilme> obterFilmesPopulares(@Query("api_key") String chaveApi);
 
     @GET("movie/{id}/videos")
-    //segundo edpoint com retrofit
+        //segundo edpoint com retrofit
     Call<ResultTrailer> obterTrailer(@Path("id") int id, @Query("api_key") String chaveApi);
 
     @GET("movie/{id}/reviews")

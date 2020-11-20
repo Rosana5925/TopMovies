@@ -6,15 +6,16 @@ import java.util.List;
 
 public interface ListaTrailerContrato {
 
-    interface ListaTrailerView{
+    interface ListaTrailerView {
         void mostrarTrailer(List<Trailer> trailers);
+
         void mostraErro();
 
     }
 
-    interface ListaTrailerPresenter{
+    interface ListaTrailerPresenter {
 
-        void obtemTrailer( int movie_id);
+        void obtemTrailer(int movie_id);
 
         void destruirView();
     }

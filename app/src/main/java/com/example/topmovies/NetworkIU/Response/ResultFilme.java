@@ -9,6 +9,7 @@ public class ResultFilme {
     @Json(name = "results")
     private final List<ResponseFilme> resultadofilmes;
 
+
     public ResultFilme(List<ResponseFilme> resultadofilmes) {
         this.resultadofilmes = resultadofilmes;
     }

@@ -6,13 +6,14 @@ import java.util.List;
 
 public interface ListaFilmesContrato {
 
-    interface ListaFilmesView{
+    interface ListaFilmesView {
         void mostrarFilmes(List<Filme> filmes);
+
         void mostraErro();
 
     }
 
-    interface ListaFilmesPresenter{
+    interface ListaFilmesPresenter {
 
         void obtemFilmes();
 
